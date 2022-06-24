@@ -30,7 +30,7 @@ function send_notification() {
         volume=`get_volume`
         vol_icon=`get_icon $volume`
         get_sink=`get_sink`
-        dunstify -a "Volume" -u low -r "9993" -h int:value:"$volume" -i "$vol_icon" "$get_sink" "$volume%" -t 2000
+        dunstify -a "Volume" -u low -r "9654" -h int:value:"$volume" -i "$vol_icon" "$get_sink" "$volume%" -t 2000
 }
 case $1 in
 up)
@@ -45,7 +45,7 @@ down)
 mute)
         pamixer -t
         if $(pamixer --get-mute); then
-                dunstify -i audio-volume-muted-symbolic -a "Volume" -t 2000 -r 9993 -u low "Muted"
+                dunstify -i audio-volume-muted-symbolic -a "Volume" -t 2000 -r 9654 -u low "Muted"
         else
                 send_notification up
         fi
